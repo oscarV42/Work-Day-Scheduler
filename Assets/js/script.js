@@ -43,7 +43,7 @@ $(document).ready(function () {
     function printTime() {
         $("#currentDay").text(todaysDate);
     }
-    // Displays hours on the DOM
+    // Displays hour rows on the DOM
     function printInputBlocks() {
         // for as long as our timeInput object length
         for (let i = 0; i < timeInputs.length; i++) {
