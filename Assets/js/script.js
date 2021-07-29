@@ -47,22 +47,34 @@ $(document).ready(function () {
     function printInputBlocks() {
         // for as long as our timeInput object length
         for (let i = 0; i < timeInputs.length; i++) {
+            // creating Parent row element
             var inputGroup = $('<div class="input-group mb-3 row">');
+            // giving each an id of their relevant hour
             inputGroup.attr('id', timeInputs[i].time);
             var inputGroupPrepend = $('<div class="input-group-prepend">');
+            // creating our hour slot
             var prependSpan = $('<span class="input-group-text hour">' + timeInputs[i].time + ':00' + '</span>');
+            // giving each an id of their relevant hour
             prependSpan.attr('id', timeInputs[i].time);
+            // appending our hour slot 
             inputGroupPrepend.append(prependSpan);
+            // creating our input element
             var inputEl = $('<input type="text" class="form-control" value="' + timeInputs[i].input + '">');
+            // giving our hour input section attributes relative to their hour
             inputEl.attr('data-hour', timeInputs[i].time)
             inputEl.attr('id', timeInputs[i].time + 'hr');
             inputEl.attr('value', timeInputs[i].input);
             var inputGroupAppend = $('<div class="input-group-append">');
+            // creating hour each hour button
             var appendSpan = $('<span data-time="" class="input-group-text saveBtn"><button id="Btn">💾</button></span>');
+            // giving each button an index
             var button = $("#Btn").attr('id', i - 1);
+            // event listener for each button
             button.on("click", button_handler);
             inputGroupAppend.append(appendSpan);
+            // appending all our row material
             inputGroup.append(inputGroupPrepend).append(inputEl).append(inputGroupAppend);
+            // appending created row to the container div
             $(".container").append(inputGroup);
         }
     }
